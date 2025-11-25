@@ -1,0 +1,71 @@
+---
+const navItems = [
+  { name: "Inicio", href: "/" },
+  { name: "Servicios", href: "#servicios" },
+  { name: "Nosotros", href: "#nosotros" },
+  { name: "Contacto", href: "#contacto" },
+];
+---
+
+<header class="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
+  <div class="container-pro flex items-center justify-between py-4">
+    <!-- LOGO -->
+    <a href="/" class="flex items-center gap-2">
+      <div class="w-10 h-10 bg-[var(--color-primary)] rounded-xl flex items-center justify-center text-white font-bold text-xl">
+        S
+      </div>
+      <span class="text-xl font-semibold text-gray-800">Sankai Tecnologías</span>
+    </a>
+
+    <!-- NAV DESKTOP -->
+    <nav class="hidden md:flex items-center gap-8">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="text-gray-700 hover:text-[var(--color-primary)] transition-colors font-medium"
+        >
+          {item.name}
+        </a>
+      ))}
+    </nav>
+
+    <!-- CTA -->
+    <a href="#contacto" class="hidden md:inline-block btn btn-primary">
+      Contactanos
+    </a>
+
+    <!-- MOBILE BUTTON -->
+    <button id="mobile-toggle" class="md:hidden p-2 text-gray-700">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+        <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-sm">
+    <nav class="flex flex-col px-6 py-4 gap-4">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="text-gray-700 hover:text-[var(--color-primary)] font-medium"
+        >
+          {item.name}
+        </a>
+      ))}
+      <a href="#contacto" class="btn btn-primary w-full text-center">
+        Contactanos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- SCRIPT MOBILE -->
+<script>
+  const toggle = document.getElementById("mobile-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("hidden");
+  });
+</script>

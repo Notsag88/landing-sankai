@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+/* ------ VARIABLES DE DISEÑO -------- */
+
+:root {
+  --color-primary: #2563eb;
+  --color-secondary: #0ea5e9;
+  --color-accent: #6366f1;
+}
+
+/* ------ CONTENEDOR GLOBAL -------- */
+
+.container-pro {
+  @apply max-w-7xl mx-auto px-6;
+}
+
+/* ------ TEXTOS -------- */
+
+.section-title {
+  @apply text-4xl md:text-5xl font-bold text-center text-gray-900 mb-4;
+}
+
+.section-subtitle {
+  @apply text-lg text-gray-600 text-center;
+}
+
+/* ------ BOTONES -------- */
+
+.btn {
+  @apply inline-block px-6 py-3 font-medium rounded-xl transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-[var(--color-primary)] text-white hover:bg-blue-700 shadow-lg;
+}
+
+.btn-light {
+  @apply bg-white text-gray-900 hover:bg-gray-100 shadow-lg;
+}
+
+/* ------ CARDS -------- */
+
+.card-pro {
+  @apply bg-white shadow-md rounded-2xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+}
+
+.card-title {
+  @apply text-xl font-semibold text-gray-900 mt-4;
+}
+
+.card-desc {
+  @apply text-gray-600 mt-2;
+}
+
+.icon-pro {
+  @apply text-4xl bg-blue-100 text-blue-600 w-20 h-20 mx-auto rounded-2xl flex items-center justify-center;
+}
+
+/* ------ PORTFOLIO -------- */
+
+.portfolio-card {
+  @apply rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all;
+}
+
+.portfolio-img {
+  @apply w-full h-56 object-cover;
+}
+
+.portfolio-title {
+  @apply text-xl font-semibold text-gray-900 p-4;
+}
+
+/* ------ FOOTER UTILS -------- */
+
+.footer-link {
+  @apply text-gray-400 hover:text-white transition;
+}
