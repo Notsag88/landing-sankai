@@ -9,6 +9,7 @@ const navItems = [
 
 <header class="w-full bg-white shadow-sm fixed top-0 left-0 z-50">
   <div class="container-pro flex items-center justify-between py-4">
+    
     <!-- LOGO -->
     <a href="/" class="flex items-center gap-2">
       <div class="w-10 h-10 bg-[var(--color-primary)] rounded-xl flex items-center justify-center text-white font-bold text-xl">
@@ -29,15 +30,18 @@ const navItems = [
       ))}
     </nav>
 
-    <!-- CTA -->
+    <!-- CTA SOLO DESKTOP -->
     <a href="#contacto" class="hidden md:inline-block btn btn-primary">
       Contactanos
     </a>
 
-    <!-- MOBILE BUTTON -->
+    <!-- MOBILE HAMBURGER BUTTON -->
     <button id="mobile-toggle" class="md:hidden p-2 text-gray-700">
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-        <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 6H20M4 12H20M4 18H20" 
+              stroke="currentColor" 
+              stroke-width="2" 
+              stroke-linecap="round"/>
       </svg>
     </button>
   </div>
@@ -45,15 +49,19 @@ const navItems = [
   <!-- MOBILE MENU -->
   <div id="mobile-menu" class="hidden md:hidden bg-white border-t shadow-sm">
     <nav class="flex flex-col px-6 py-4 gap-4">
+
       {navItems.map(item => (
         <a
           href={item.href}
           class="text-gray-700 hover:text-[var(--color-primary)] font-medium"
+          data-close-menu
         >
           {item.name}
         </a>
       ))}
-      <a href="#contacto" class="btn btn-primary w-full text-center">
+
+      <!-- CTA movile -->
+      <a href="#contacto" class="btn btn-primary w-full text-center" data-close-menu>
         Contactanos
       </a>
     </nav>
@@ -65,7 +73,15 @@ const navItems = [
   const toggle = document.getElementById("mobile-toggle");
   const menu = document.getElementById("mobile-menu");
 
+  // Toggle open/close
   toggle.addEventListener("click", () => {
     menu.classList.toggle("hidden");
+  });
+
+  // Auto-close when clicking any nav item
+  document.querySelectorAll("[data-close-menu]").forEach(link => {
+    link.addEventListener("click", () => {
+      menu.classList.add("hidden");
+    });
   });
 </script>

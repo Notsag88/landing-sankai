@@ -26,8 +26,14 @@
 
 /* ------ BOTONES -------- */
 
+/* 🚀 IMPORTANTE: QUITAMOS inline-block (rompía los breakpoints) */
 .btn {
-  @apply inline-block px-6 py-3 font-medium rounded-xl transition-all duration-300;
+  @apply px-6 py-3 font-medium rounded-xl transition-all duration-300 w-fit;
+}
+
+/* Asegura que Tailwind pueda usar hidden, flex, block, md:hidden, etc. */
+.btn.hidden {
+  display: none !important;
 }
 
 .btn-primary {
